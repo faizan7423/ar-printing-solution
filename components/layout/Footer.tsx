@@ -1,0 +1,4 @@
+import Link from "next/link";
+import {company,services,nav} from "@/data/site";
+import {Brand} from "./Header";
+export function Footer(){return <footer id="contact"><div className="container foot"><div><Brand/><p>Garment and textile printing in Bengaluru, Karnataka, India.</p></div><div><h3>Quick links</h3>{nav.map(([n,u])=><Link key={u} href={u}>{n}</Link>)}</div><div><h3>Printing services</h3>{services.map(s=><Link key={s.id} href={'/services#'+s.id}>{s.short}</Link>)}</div><div><h3>Contact</h3><address>{company.address}</address>{company.phones.map(([n,t])=><a key={t} href={'tel:'+t}>{n}</a>)}<a href={'mailto:'+company.email}>{company.email}</a></div></div><div className="container copyright">© AR Printing Solution. All rights reserved.</div></footer>}
